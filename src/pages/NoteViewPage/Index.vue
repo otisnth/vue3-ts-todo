@@ -1,6 +1,7 @@
 <template>
-    <h1>TODO</h1>
-    <router-view />
+    <div>
+        <h1>Просмотр заметки</h1>
+    </div>
 </template>
 
 <script setup lang="ts"></script>
