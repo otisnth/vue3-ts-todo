@@ -1,8 +1,10 @@
 <template>
-    <h1>TODO</h1>
+    <Header>TODO!</Header>
     <router-view />
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Header from "@/shared/ui/Header.vue";
+</script>
 
 <style></style>
