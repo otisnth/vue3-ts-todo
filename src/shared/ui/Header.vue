@@ -48,4 +48,9 @@ const headerPageList: any = [
     font-size: 20px;
     line-height: 20px;
 }
+
+.header__link.router-link-active {
+    background-color: #06b638;
+    color: #fff;
+}
 </style>
