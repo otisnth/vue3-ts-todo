@@ -26,4 +26,26 @@ const headerPageList: any = [
 ];
 </script>
 
-<style></style>
+<style>
+.header__container {
+    display: flex;
+    padding: 12px 32px;
+    gap: 40px;
+    background-color: #1f1f1f;
+    color: #d6d6d6;
+    border-radius: 4px;
+}
+
+.header__links {
+    display: flex;
+    gap: 20px;
+}
+
+.header__link {
+    background-color: #d6d6d619;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 20px;
+    line-height: 20px;
+}
+</style>

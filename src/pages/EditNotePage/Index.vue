@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="page-title__container">
         <h1>Редактировать заметку</h1>
     </div>
 </template>

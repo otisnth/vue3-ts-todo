@@ -1,11 +1,28 @@
 #app {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
 }
 
 body {
   display: flex;
   place-items: center;
+  background-color: #000;
+}
+
+.page-title__container {
+  color: #d6d6d6;
+  background-color: #1f1f1f;
+  display: flex;
+  justify-content: center;
+  border-radius: 4px;
 }
