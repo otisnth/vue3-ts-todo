@@ -1,7 +1,7 @@
 <template>
     <header class="header__container">
         <div class="header__logo">
-            <img src="@/shared/to-do-list.svg" alt="Logo" />
+            <img src="/to-do-list.svg" alt="Logo" />
         </div>
         <div class="header__links">
             <router-link class="header__link" v-for="item in headerPageList" :key="item.id" :to="item.link">
