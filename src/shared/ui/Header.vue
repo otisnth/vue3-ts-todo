@@ -12,7 +12,9 @@
 </template>
 
 <script setup lang="ts">
-const headerPageList: any = [
+import type { IHeaderLink } from "@/shared/model/types";
+
+const headerPageList: Array<IHeaderLink> = [
     {
         id: "list-note",
         link: "/",
