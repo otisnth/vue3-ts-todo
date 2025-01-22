@@ -1,7 +1,7 @@
 <template>
     <header class="header__container">
         <div class="header__logo">
-            <slot></slot>
+            <img src="@/shared/to-do-list.svg" alt="Logo" />
         </div>
         <div class="header__links">
             <router-link class="header__link" v-for="item in headerPageList" :key="item.id" :to="item.link">
@@ -34,6 +34,12 @@ const headerPageList: any = [
     background-color: #1f1f1f;
     color: #d6d6d6;
     border-radius: 4px;
+}
+
+.header__logo {
+    width: 40px;
+    width: 40px;
+    color: #06b638;
 }
 
 .header__links {

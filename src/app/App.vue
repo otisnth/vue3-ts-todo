@@ -1,5 +1,5 @@
 <template>
-    <Header>TODO!</Header>
+    <Header />
     <router-view />
 </template>
 
