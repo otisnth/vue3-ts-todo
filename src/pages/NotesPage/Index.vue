@@ -4,6 +4,10 @@
     </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useNote } from "@/entities/Note/model/useNote";
+
+const { notes } = useNote();
+</script>
 
 <style></style>
