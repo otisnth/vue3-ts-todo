@@ -5,7 +5,7 @@ import type { INote } from "./types";
 export const useNote = () => {
     const notes = ref<INote[]>([
         {
-            title: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+            title: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
             createdAt: "2025-01-23",
             tasks: [
                 {
