@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch } from "vue";
+import { computed, watch } from "vue";
 
 import type { INote } from "@/entities/Note/model/types";
 
@@ -23,11 +23,7 @@ import Input from "@/shared/ui/Input.vue";
 
 const MIN_DISPLAYED_TASKS = 3;
 
-const note = ref<INote>({
-    title: "",
-    tasks: [],
-    createdAt: "",
-});
+const note = defineModel<INote>({ required: true });
 
 const noteTasks = computed(() => note.value.tasks);
 

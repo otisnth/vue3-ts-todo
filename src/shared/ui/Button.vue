@@ -24,6 +24,7 @@ defineProps({
     color: #d6d6d6;
     font-size: 16px;
     border: 1px solid #e0621b;
+    cursor: pointer;
 }
 
 .button_outlined {
