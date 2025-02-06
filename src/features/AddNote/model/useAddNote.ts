@@ -10,6 +10,8 @@ export const useAddNote = () => {
     const addNoteForm = (note: INote) => {
         note.createdAt = Date.now().toString();
 
+        note.tasks = note.tasks.filter((task) => task.title.length);
+
         note.tasks.forEach((task) => {
             task.createdAt = Date.now().toString();
         });

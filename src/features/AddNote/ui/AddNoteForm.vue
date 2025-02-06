@@ -3,7 +3,7 @@
         <NoteForm v-model="note" />
 
         <div class="add-note-form__button-row">
-            <Button class="add-note-form__button" :outlined="true">
+            <Button @click="cancelButtonHandler" class="add-note-form__button" :outlined="true">
                 <img class="add-note-form__button-icon" src="/cancel.svg" alt="Cancel icon" />
                 <span class="add-note-form__button-text">Отмена</span>
             </Button>
@@ -16,7 +16,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { reactive, toRaw } from "vue";
+import { useRouter } from "vue-router";
 
 import Button from "@/shared/ui/Button.vue";
 import NoteForm from "@/entities/Note/ui/NoteForm.vue";
@@ -25,7 +26,9 @@ import type { INote } from "@/entities/Note/model/types";
 
 import { useAddNote } from "@/features/AddNote/model/useAddNote";
 
-const note = ref<INote>({
+const router = useRouter();
+
+const note = reactive<INote>({
     title: "",
     tasks: [],
     createdAt: "",
@@ -34,7 +37,12 @@ const note = ref<INote>({
 const { addNoteForm } = useAddNote();
 
 const addButtonHandler = () => {
-    addNoteForm(note.value);
+    addNoteForm(toRaw(note));
+    router.push({ name: "notesPage" });
+};
+
+const cancelButtonHandler = () => {
+    router.back();
 };
 </script>
 
