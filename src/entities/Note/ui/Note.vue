@@ -2,7 +2,7 @@
     <div class="note__container">
         <div class="note__info-area">
             <div class="note__info-header">
-                <img class="note__icon" src="/wait.svg" alt="Task icon" />
+                <SvgIcon class="note__icon" name="wait" width="24" height="24" color="#D6D6D6"/>
                 <span class="note__title">{{ note.title }}</span>
             </div>
             <TasksList class="note__task-list" :tasks="noteTasks" />
@@ -10,11 +10,11 @@
 
         <div class="note__button-area">
             <div class="note__button">
-                <img class="note__icon" src="/edit.svg" alt="Edit btn" />
+                <SvgIcon class="note__icon" name="edit" width="21" height="20" color="#FFD166"/>
             </div>
 
             <div class="note__button">
-                <img class="note__icon" src="/trash.svg" alt="Delete btn" />
+                <SvgIcon class="note__icon" name="trash" width="21" height="20" color="#E01B1B"/>
             </div>
         </div>
     </div>
@@ -23,6 +23,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import type { INote } from "@/entities/Note/model/types";
+import SvgIcon from "@/shared/ui/SvgIcon.vue";
 import TasksList from "./TasksList.vue";
 
 const props = defineProps<{ note: INote }>();
@@ -70,7 +71,6 @@ const noteTasks = computed(() => props.note.tasks);
 }
 
 .note__icon {
-    width: 24px;
-    height: 24px;
+    flex-shrink: 0;
 }
 </style>
