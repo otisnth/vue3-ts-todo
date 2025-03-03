@@ -15,5 +15,6 @@ defineProps<{ task: ITask }>();
 .task__title {
     color: #d6d6d6;
     font-size: 14px;
+    padding-left: 6px;
 }
 </style>

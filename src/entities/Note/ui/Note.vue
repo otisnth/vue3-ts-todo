@@ -6,6 +6,10 @@
                 <span class="note__title">{{ note.title }}</span>
             </div>
             <TasksList class="note__task-list" :tasks="noteTasks" />
+            <div class="note__info-footer">
+                <span class="note__info-footer-text">Создано:</span>
+                <span class="note__info-date">{{ formatDate(note.createdAt) }}</span>
+            </div>
         </div>
 
         <div class="note__button-area">
@@ -24,6 +28,7 @@
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 import type { INote } from "@/entities/Note/model/types";
+import { formatDate } from "../lib/dateFormat";
 import SvgIcon from "@/shared/ui/SvgIcon.vue";
 import TasksList from "./TasksList.vue";
 
@@ -52,6 +57,7 @@ const handleNoteClick = () => {
 .note__button-area {
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
 
 .note__info-area {
@@ -82,4 +88,20 @@ const handleNoteClick = () => {
 .note__icon {
     flex-shrink: 0;
 }
+
+.note__task-list {
+    flex-grow: 1;
+}
+
+.note__info-footer-text {
+    color: #848484;
+    font-weight: 600;
+}
+
+.note__info-date {
+    color: #d6d6d6;
+    font-size: 14px;
+    padding-left: 8px;
+}
+
 </style>

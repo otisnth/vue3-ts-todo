@@ -1,9 +1,12 @@
 <template>
     <PageContentHeader title="Просмотр заметки" is-back-button />
     <div v-if="note" class="note-view-page">
-        <h2>{{ note.title }}</h2>
-        <p>{{ formatDate(note.createdAt) }}</p>
-        <TasksList :tasks="note.tasks" />
+        <h2 class="note-view-page__title">{{ note.title }}</h2>
+        <p class="note-view-page__date">
+            <span class="note-view-page__date-text">Создано:</span>
+            <span class="note-view-page__date-value">{{ formatDate(note.createdAt) }}</span>
+        </p>
+        <TasksList class="note-view-page__tasks" :tasks="note.tasks" />
     </div>
 </template>
 
@@ -31,8 +34,24 @@ onMounted(() => {
 .note-view-page {
     display: flex;
     flex-direction: column;
+    gap: 16px;
     padding: 16px 8px;
     background-color: #1f1f1f;
     border-radius: 4px;
 }
+
+.note-view-page__title {
+    font-size: 24px;
+    color: #d6d6d6;
+}
+
+.note-view-page__date-text {
+    font-weight: 600;
+    color: #848484;
+}
+
+.note-view-page__date-value {
+    color: #d6d6d6;
+}
+
 </style>
