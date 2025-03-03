@@ -1,7 +1,7 @@
 <template>
     <div class="note__container">
         <div class="note__info-area">
-            <div class="note__info-header">
+            <div class="note__info-header" @click="handleNoteClick">
                 <SvgIcon class="note__icon" name="wait" width="24" height="24" color="#D6D6D6"/>
                 <span class="note__title">{{ note.title }}</span>
             </div>
@@ -22,13 +22,20 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
+import { useRouter } from "vue-router";
 import type { INote } from "@/entities/Note/model/types";
 import SvgIcon from "@/shared/ui/SvgIcon.vue";
 import TasksList from "./TasksList.vue";
 
+const router = useRouter();
+
 const props = defineProps<{ note: INote }>();
 
 const noteTasks = computed(() => props.note.tasks);
+
+const handleNoteClick = () => {
+    router.push(`/note/${props.note.id}`);
+};
 </script>
 
 <style>
@@ -59,6 +66,7 @@ const noteTasks = computed(() => props.note.tasks);
     display: flex;
     align-items: center;
     gap: 12px;
+    cursor: pointer;
 }
 
 .note__title {
@@ -68,6 +76,7 @@ const noteTasks = computed(() => props.note.tasks);
 
 .note__button {
     padding: 12px;
+    cursor: pointer;
 }
 
 .note__icon {

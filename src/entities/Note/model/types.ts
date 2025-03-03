@@ -5,6 +5,7 @@ export interface ITask {
 }
 
 export interface INote {
+    id: number;
     title: string;
     tasks: Array<ITask>;
     createdAt: string;

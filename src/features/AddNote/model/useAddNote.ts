@@ -1,5 +1,3 @@
-import { ref } from "vue";
-
 import type { INote } from "@/entities/Note/model/types";
 
 import { useNote } from "@/entities/Note/model/useNote";
@@ -15,6 +13,9 @@ export const useAddNote = () => {
         note.tasks.forEach((task) => {
             task.createdAt = Date.now().toString();
         });
+
+        // For unique id
+        note.id = Date.now();
 
         addNote(note);
     };

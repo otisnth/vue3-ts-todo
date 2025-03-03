@@ -30,6 +30,7 @@ import { useAddNote } from "@/features/AddNote/model/useAddNote";
 const router = useRouter();
 
 const note = reactive<INote>({
+    id: 0,
     title: "",
     tasks: [],
     createdAt: "",
