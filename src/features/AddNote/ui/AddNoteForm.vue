@@ -8,7 +8,7 @@
                 <span class="add-note-form__button-text">Отмена</span>
             </Button>
             <Button @click="addButtonHandler" class="add-note-form__button">
-                <SvgIcon name="edit" width="30" height="30" color="#FFD166"/>
+                <SvgIcon name="editTodo" width="30" height="30" color="#FFFFFF"/>
                 <span class="add-note-form__button-text">Добавить</span>
             </Button>
         </div>

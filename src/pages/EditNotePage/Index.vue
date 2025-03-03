@@ -1,9 +1,9 @@
 <template>
-    <div class="page-title__container">
-        <h1>Редактировать заметку</h1>
-    </div>
+    <PageContentHeader title="Редактировать заметку" is-back-button />
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import PageContentHeader from "@/shared/ui/PageContentHeader.vue";
+</script>
 
 <style></style>

@@ -1,7 +1,5 @@
 <template>
-    <div class="page-title__container">
-        <h1>Просмотр заметки</h1>
-    </div>
+    <PageContentHeader title="Просмотр заметки" is-back-button />
     <div v-if="note" class="note-view-page">
         <h2>{{ note.title }}</h2>
         <p>{{ formatDate(note.createdAt) }}</p>
@@ -16,6 +14,7 @@ import { useNote } from "@/entities/Note/model/useNote";
 import { formatDate } from "@/entities/Note/lib/dateFormat";
 import type { INote } from "@/entities/Note/model/types";
 import TasksList from "@/entities/Note/ui/TasksList.vue";
+import PageContentHeader from "@/shared/ui/PageContentHeader.vue";
 
 const route = useRoute();
 const { getNoteById } = useNote();
