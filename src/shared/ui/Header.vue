@@ -41,7 +41,7 @@ const headerPageList: Array<IHeaderLink> = [
 .header__logo {
     width: 40px;
     width: 40px;
-    color: #06b638;
+    color: #e0621b;
 }
 
 .header__links {
@@ -58,7 +58,7 @@ const headerPageList: Array<IHeaderLink> = [
 }
 
 .header__link.router-link-active {
-    background-color: #06b638;
+    background-color: #e0621b;
     color: #fff;
 }
 </style>
