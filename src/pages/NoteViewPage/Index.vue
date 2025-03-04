@@ -1,7 +1,15 @@
 <template>
     <PageContentHeader title="Просмотр заметки" is-back-button />
     <div v-if="note" class="note-view-page">
-        <h2 class="note-view-page__title">{{ note.title }}</h2>
+        <div class="note-view-page__header">
+            <h2 class="note-view-page__title">{{ note.title }}</h2>
+            <Button class="note-view-page__button" outlined color='peach'>
+                Изменить
+            </Button>
+            <Button class="note-view-page__button" color='red'>
+                Удалить
+            </Button>
+        </div>
         <p class="note-view-page__date">
             <span class="note-view-page__date-text">Создано:</span>
             <span class="note-view-page__date-value">{{ formatDate(note.createdAt) }}</span>
@@ -18,6 +26,7 @@ import { formatDate } from "@/entities/Note/lib/dateFormat";
 import type { INote } from "@/entities/Note/model/types";
 import TasksList from "@/entities/Note/ui/TasksList.vue";
 import PageContentHeader from "@/shared/ui/PageContentHeader.vue";
+import Button from "@/shared/ui/Button.vue";
 
 const route = useRoute();
 const { getNoteById } = useNote();
@@ -40,6 +49,13 @@ onMounted(() => {
     border-radius: 4px;
 }
 
+.note-view-page__header {
+    display: grid;
+    gap: 16px;
+    align-items: center;
+    grid-template-columns: 1fr auto auto;
+}
+
 .note-view-page__title {
     font-size: 24px;
     color: #d6d6d6;
@@ -52,6 +68,7 @@ onMounted(() => {
 
 .note-view-page__date-value {
     color: #d6d6d6;
+    padding-left: 8px;
 }
 
 </style>
