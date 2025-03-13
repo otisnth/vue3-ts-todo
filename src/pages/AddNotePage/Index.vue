@@ -16,7 +16,9 @@ import PageContentHeader from "@/shared/ui/PageContentHeader.vue";
 .add-note-page {
     display: flex;
     flex-direction: column;
-    padding: 16px 8px;
+    margin: 0 auto;
+    width: 50%;
+    padding: 16px 32px;
     background-color: #1f1f1f;
     border-radius: 4px;
 }

@@ -3,7 +3,7 @@
     <div v-if="note" class="note-view-page">
         <div class="note-view-page__header">
             <h2 class="note-view-page__title">{{ note.title }}</h2>
-            <Button class="note-view-page__button" outlined color='peach'>
+            <Button class="note-view-page__button" outlined color='peach' @click="editNoteHandler">
                 Изменить
             </Button>
             <Button class="note-view-page__button" color='red'>
@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useNote } from "@/entities/Note/model/useNote";
 import { formatDate } from "@/entities/Note/lib/dateFormat";
 import type { INote } from "@/entities/Note/model/types";
@@ -29,10 +29,15 @@ import PageContentHeader from "@/shared/ui/PageContentHeader.vue";
 import Button from "@/shared/ui/Button.vue";
 
 const route = useRoute();
+const router = useRouter();
 const { getNoteById } = useNote();
 
 const noteId = route.params.id;
 const note = ref<INote | null>(null);
+
+const editNoteHandler = () => {
+    router.push({ name: "editNote", params: { id: noteId } });
+};
 
 onMounted(() => {
     note.value = getNoteById(Number(noteId));
@@ -43,8 +48,10 @@ onMounted(() => {
 .note-view-page {
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    width: 50%;
     gap: 16px;
-    padding: 16px 8px;
+    padding: 16px 32px;
     background-color: #1f1f1f;
     border-radius: 4px;
 }
