@@ -14,7 +14,7 @@
 
         <div class="note__button-area">
             <div class="note__button">
-                <SvgIcon class="note__icon" name="edit" width="21" height="20" color="#FFD166"/>
+                <SvgIcon class="note__icon" name="edit" width="21" height="20" color="#FFD166" @click="editNoteHandler"/>
             </div>
 
             <div class="note__button">
@@ -40,6 +40,10 @@ const noteTasks = computed(() => props.note.tasks);
 
 const handleNoteClick = () => {
     router.push(`/note/${props.note.id}`);
+};
+
+const editNoteHandler = () => {
+    router.push({ name: "editNote", params: { id: props.note.id } });
 };
 </script>
 

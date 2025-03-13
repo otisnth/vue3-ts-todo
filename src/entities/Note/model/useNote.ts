@@ -48,9 +48,17 @@ export const useNote = () => {
         return notes.value.find((note) => note.id === id) || null;
     };
 
+    const updateNote = (updatedNote: INote) => {
+        const index = notes.value.findIndex((note) => note.id === updatedNote.id);
+        if (index !== -1) {
+            notes.value[index] = updatedNote;
+        }
+    };
+
     return {
         notes,
         addNote,
         getNoteById,
+        updateNote,
     };
 };

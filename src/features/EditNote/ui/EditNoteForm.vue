@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, onMounted } from "vue";
+import { reactive, onMounted, toRaw } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
 import SvgIcon from "@/shared/ui/SvgIcon.vue";
@@ -25,10 +25,12 @@ import NoteForm from "@/entities/Note/ui/NoteForm.vue";
 
 import { useNote } from "@/entities/Note/model/useNote";
 import type { INote } from "@/entities/Note/model/types";
+import { useEditNote } from "@/features/EditNote/model/useEditNote";
 
 const router = useRouter();
 const route = useRoute();
 const { getNoteById } = useNote();
+const { editNoteForm } = useEditNote();
 
 const note = reactive<INote>({
     id: 0,
@@ -49,7 +51,7 @@ onMounted(() => {
 });
 
 const saveButtonHandler = () => {
-    // TODO: Добавить логику сохранения
+    editNoteForm(toRaw(note));
     router.push({ name: "notesPage" });
 };
 
