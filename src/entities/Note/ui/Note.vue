@@ -18,7 +18,7 @@
             </div>
 
             <div class="note__button">
-                <SvgIcon class="note__icon" name="trash" width="21" height="20" color="#E01B1B"/>
+                <SvgIcon class="note__icon" name="trash" width="21" height="20" color="#E01B1B" @click="deleteNoteHandler"/>
             </div>
         </div>
     </div>
@@ -28,6 +28,8 @@
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 import type { INote } from "@/entities/Note/model/types";
+import { useModal } from '@/shared/ui/Modal/useModal';
+import DeleteNoteModal from '@/features/DeleteNote/ui/DeleteNoteModal.vue';
 import { formatDate } from "../lib/dateFormat";
 import SvgIcon from "@/shared/ui/SvgIcon.vue";
 import TasksList from "./TasksList.vue";
@@ -44,6 +46,15 @@ const handleNoteClick = () => {
 
 const editNoteHandler = () => {
     router.push({ name: "editNote", params: { id: props.note.id } });
+};
+
+const { openModal } = useModal();
+
+const deleteNoteHandler = () => {
+    openModal({
+        component: DeleteNoteModal,
+        props: { noteId: props.note.id }
+    });
 };
 </script>
 

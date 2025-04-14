@@ -55,10 +55,18 @@ export const useNote = () => {
         }
     };
 
+    const deleteNote = (id: number) => {
+        const index = notes.value.findIndex((note) => note.id === id);
+        if (index !== -1) {
+            notes.value.splice(index, 1);
+        }
+    };
+
     return {
         notes,
         addNote,
         getNoteById,
         updateNote,
+        deleteNote,
     };
 };
