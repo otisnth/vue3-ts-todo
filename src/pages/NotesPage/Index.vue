@@ -1,9 +1,9 @@
 <template>
-    <PageContentHeader title="Список заметок" />
+  <PageContentHeader title="Список заметок" />
 
-    <div class="notes-list__container">
-        <Note v-for="(item, index) in notes" :key="index" :note="item" />
-    </div>
+  <div class="notes-list__container">
+    <Note v-for="(item, index) in notes" :key="index" :note="item" />
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -16,8 +16,8 @@ const { notes } = useNote();
 
 <style>
 .notes-list__container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 }
 </style>

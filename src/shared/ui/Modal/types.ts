@@ -1,5 +1,4 @@
 export interface IModalProps {
-    isOpen: boolean;
-    onClose: () => void;
+  isOpen: boolean;
+  onClose: () => void;
 }
-

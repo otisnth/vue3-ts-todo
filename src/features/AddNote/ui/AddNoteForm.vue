@@ -1,18 +1,18 @@
 <template>
-    <div class="add-note-form">
-        <NoteForm v-model="note" />
+  <div class="add-note-form">
+    <NoteForm v-model="note" />
 
-        <div class="add-note-form__button-row">
-            <Button @click="cancelButtonHandler" class="add-note-form__button" :outlined="true">
-                <SvgIcon name="cancel" width="30" height="30" color="#e0621b"/>
-                <span class="add-note-form__button-text">Отмена</span>
-            </Button>
-            <Button @click="addButtonHandler" class="add-note-form__button">
-                <SvgIcon name="editTodo" width="30" height="30" color="#FFFFFF"/>
-                <span class="add-note-form__button-text">Добавить</span>
-            </Button>
-        </div>
+    <div class="add-note-form__button-row">
+      <Button @click="cancelButtonHandler" class="add-note-form__button" :outlined="true">
+        <SvgIcon name="cancel" width="30" height="30" color="#e0621b" />
+        <span class="add-note-form__button-text">Отмена</span>
+      </Button>
+      <Button @click="addButtonHandler" class="add-note-form__button">
+        <SvgIcon name="editTodo" width="30" height="30" color="#FFFFFF" />
+        <span class="add-note-form__button-text">Добавить</span>
+      </Button>
     </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -32,36 +32,36 @@ const router = useRouter();
 const { validateNote } = useValidationNote();
 
 const note = reactive<INote>({
-    id: 0,
-    title: "",
-    tasks: [],
-    createdAt: "",
+  id: 0,
+  title: "",
+  tasks: [],
+  createdAt: "",
 });
 
 const { addNoteForm } = useAddNote();
 
 const addButtonHandler = () => {
-    if (validateNote(note)) {
-        addNoteForm(toRaw(note));
-        router.push({ name: "notesPage" });
-    }
+  if (validateNote(note)) {
+    addNoteForm(toRaw(note));
+    router.push({ name: "notesPage" });
+  }
 };
 
 const cancelButtonHandler = () => {
-    router.back();
+  router.back();
 };
 </script>
 
 <style>
 .add-note-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
 }
 
 .add-note-form__button-row {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 </style>

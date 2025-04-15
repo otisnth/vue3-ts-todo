@@ -1,8 +1,16 @@
 <template>
-    <div class="page-content-header">
-        <SvgIcon v-if="isBackButton" class="page-content-header__back-button" name="arrowLeft" width="40" height="40" color="#d6d6d6" @click="backButtonHandler"/>
-        <h1 class="page-content-header__title">{{ title }}</h1>
-    </div>
+  <div class="page-content-header">
+    <SvgIcon
+      v-if="isBackButton"
+      class="page-content-header__back-button"
+      name="arrowLeft"
+      width="40"
+      height="40"
+      color="#d6d6d6"
+      @click="backButtonHandler"
+    />
+    <h1 class="page-content-header__title">{{ title }}</h1>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -10,15 +18,15 @@ import { useRouter } from "vue-router";
 import SvgIcon from "@/shared/ui/SvgIcon.vue";
 
 defineProps<{
-    title: string;
-    isBackButton?: boolean;
+  title: string;
+  isBackButton?: boolean;
 }>();
 
 const router = useRouter();
 
 const backButtonHandler = () => {
-    router.back();
-}
+  router.back();
+};
 </script>
 
 <style>
@@ -40,7 +48,7 @@ const backButtonHandler = () => {
 }
 
 .page-content-header__back-button {
-    cursor: pointer;
-    justify-self: start;
+  cursor: pointer;
+  justify-self: start;
 }
 </style>

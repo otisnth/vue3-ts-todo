@@ -1,7 +1,7 @@
 <template>
-    <div class="taks-list__container">
-        <Task v-for="(item, index) in tasks" :key="index" :task="item" />
-    </div>
+  <div class="taks-list__container">
+    <Task v-for="(item, index) in tasks" :key="index" :task="item" />
+  </div>
 </template>
 
 <script setup lang="ts">
