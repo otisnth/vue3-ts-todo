@@ -6,9 +6,9 @@
 
 <script setup lang="ts">
 enum ButtonColor {
-    red = 'red',
-    peach = 'peach',
-    orange = 'orange',
+    red = "red",
+    peach = "peach",
+    orange = "orange",
 }
 
 defineProps({
@@ -28,6 +28,7 @@ defineProps({
     display: flex;
     gap: 10px;
     align-items: center;
+    justify-content: center;
     padding: 12px 24px;
     border-radius: 8px;
     font-size: 16px;
@@ -35,9 +36,9 @@ defineProps({
 }
 
 .button__orange {
-    background-color: #E0621B;
+    background-color: #e0621b;
     color: #d6d6d6;
-    border: 1px solid #E0621B;
+    border: 1px solid #e0621b;
 }
 
 .button__orange.button__outlined {
@@ -46,24 +47,24 @@ defineProps({
 }
 
 .button__red {
-    background-color: #E01B1B;
+    background-color: #e01b1b;
     color: #d6d6d6;
-    border: 1px solid #E01B1B;
+    border: 1px solid #e01b1b;
 }
 
 .button__red.button__outlined {
     background-color: transparent;
-    color: #E01B1B;
+    color: #e01b1b;
 }
 
 .button__peach {
-    background-color: #FFD166;
+    background-color: #ffd166;
     color: #d6d6d6;
-    border: 1px solid #FFD166;
+    border: 1px solid #ffd166;
 }
 
 .button__peach.button__outlined {
     background-color: transparent;
-    color: #FFD166;
+    color: #ffd166;
 }
 </style>

@@ -26,8 +26,10 @@ import NoteForm from "@/entities/Note/ui/NoteForm.vue";
 import type { INote } from "@/entities/Note/model/types";
 
 import { useAddNote } from "@/features/AddNote/model/useAddNote";
+import { useValidationNote } from "@/entities/Note/model/useValidationNote";
 
 const router = useRouter();
+const { validateNote } = useValidationNote();
 
 const note = reactive<INote>({
     id: 0,
@@ -39,8 +41,10 @@ const note = reactive<INote>({
 const { addNoteForm } = useAddNote();
 
 const addButtonHandler = () => {
-    addNoteForm(toRaw(note));
-    router.push({ name: "notesPage" });
+    if (validateNote(note)) {
+        addNoteForm(toRaw(note));
+        router.push({ name: "notesPage" });
+    }
 };
 
 const cancelButtonHandler = () => {
