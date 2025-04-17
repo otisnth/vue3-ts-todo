@@ -5,7 +5,7 @@
         <SvgIcon class="note__icon" name="wait" width="24" height="24" color="#D6D6D6" />
         <span class="note__title">{{ note.title }}</span>
       </div>
-      <TasksList class="note__task-list" :tasks="noteTasks" />
+      <TasksList class="note__task-list" :tasks="noteTasks" :is-preview="true" />
       <div class="note__info-footer">
         <span class="note__info-footer-text">Создано:</span>
         <span class="note__info-date">{{ formatDate(note.createdAt) }}</span>

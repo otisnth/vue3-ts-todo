@@ -10,7 +10,7 @@
       <span class="note-view-page__date-text">Создано:</span>
       <span class="note-view-page__date-value">{{ formatDate(note.createdAt) }}</span>
     </p>
-    <TasksList class="note-view-page__tasks" :tasks="note.tasks" />
+    <TasksList class="note-view-page__tasks" :tasks="note.tasks" :is-preview="false" />
   </div>
 </template>
 
