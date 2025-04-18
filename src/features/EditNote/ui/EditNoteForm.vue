@@ -1,6 +1,6 @@
 <template>
   <div class="edit-note-form">
-    <NoteForm v-model="note" />
+    <NoteForm v-model="note" is-edit-form />
 
     <div class="edit-note-form__button-row">
       <Button @click="cancelButtonHandler" class="edit-note-form__button" :outlined="true">

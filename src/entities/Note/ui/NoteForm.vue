@@ -4,7 +4,10 @@
 
     <div class="note-form__tasks">
       <h3 class="note-form__tasks-title">Задачи</h3>
-      <Input v-for="(item, index) in note.tasks" class="note-form__task-input" :key="index" v-model="item.title" />
+      <div class="note-form__task" v-for="(item, index) in note.tasks" :key="index">
+        <Check class="note-form__task-check" v-model="item.isDone" :is-disabled="!isEditForm" />
+        <Input class="note-form__task-input" v-model="item.title" />
+      </div>
     </div>
   </div>
 </template>
@@ -15,8 +18,15 @@ import { computed, watch } from "vue";
 import type { INote } from "@/entities/Note/model/types";
 
 import Input from "@/shared/ui/Input.vue";
+import Check from "@/shared/ui/Check.vue";
 
-const MIN_DISPLAYED_TASKS = 3;
+interface IProps {
+  isEditForm?: boolean;
+}
+
+const MAX_DISPLAYED_TASKS = 3;
+
+const { isEditForm = false } = defineProps<IProps>();
 
 const note = defineModel<INote>({ required: true });
 
@@ -25,11 +35,11 @@ const noteTasks = computed(() => note.value.tasks);
 watch(
   () => noteTasks,
   () => {
-    for (let i = 0; i < MIN_DISPLAYED_TASKS - noteTasks.value.length; i++) {
+    for (let i = 0; i < MAX_DISPLAYED_TASKS - noteTasks.value.length; i++) {
       note.value.tasks.push({ title: "", isDone: false, createdAt: "" });
     }
 
-    if (!noteTasks.value.find((task) => task.title === "") && MIN_DISPLAYED_TASKS <= noteTasks.value.length) {
+    if (!noteTasks.value.find((task) => task.title === "") && MAX_DISPLAYED_TASKS <= noteTasks.value.length) {
       note.value.tasks.push({ title: "", isDone: false, createdAt: "" });
     }
   },
@@ -52,5 +62,10 @@ watch(
   font-size: 18px;
   font-weight: 500;
   color: #d6d6d6;
+}
+
+.note-form__task {
+  display: flex;
+  align-items: center;
 }
 </style>

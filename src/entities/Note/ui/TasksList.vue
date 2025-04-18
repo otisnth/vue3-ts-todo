@@ -50,9 +50,8 @@ const detailSorting = () => {
 };
 
 const onUpdateTask = (index: number, updatedTask: ITask) => {
-  const newTasks = [...detailSorting()];
-  newTasks[index] = updatedTask;
-  emit("update-tasks", newTasks);
+  filteredTasks.value[index] = updatedTask;
+  emit("update-tasks", filteredTasks.value);
 };
 </script>
 
