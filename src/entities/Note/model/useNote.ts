@@ -1,6 +1,7 @@
 import { ref } from "vue";
 
 import type { INote } from "./types";
+import { deepClone } from "@/shared/lib/deepClone";
 
 const notes = ref<INote[]>([
   {
@@ -46,7 +47,10 @@ export const useNote = () => {
   };
 
   const getNoteById = (id: number) => {
-    return notes.value.find((note) => note.id === id) || null;
+    const foundNote = notes.value.find((note) => note.id === id);
+    if (!foundNote) return null;
+
+    return deepClone(foundNote);
   };
 
   const updateNote = (updatedNote: INote) => {

@@ -1,20 +1,24 @@
 <template>
-  <div class="task__container">
-    <input class="task__check" type="checkbox" v-model="task.isDone" disabled />
-    <label class="task__title">{{ task.title }}</label>
-  </div>
+  <Check
+    class="task"
+    :model-value="task.isDone"
+    :label="task.title"
+    :is-disabled="isPreview"
+    @update:model-value="onCheck"
+  />
 </template>
 
 <script setup lang="ts">
 import type { ITask } from "@/entities/Note/model/types";
+import Check from "@/shared/ui/Check.vue";
 
-defineProps<{ task: ITask }>();
+const { task, isPreview = false } = defineProps<{ task: ITask; isPreview?: boolean }>();
+
+const emit = defineEmits<{
+  (e: "update-task", task: ITask): void;
+}>();
+
+const onCheck = (value: boolean) => {
+  emit("update-task", { ...task, isDone: value });
+};
 </script>
-
-<style>
-.task__title {
-  color: #d6d6d6;
-  font-size: 14px;
-  padding-left: 6px;
-}
-</style>

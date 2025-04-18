@@ -10,16 +10,17 @@
       <span class="note-view-page__date-text">Создано:</span>
       <span class="note-view-page__date-value">{{ formatDate(note.createdAt) }}</span>
     </p>
-    <TasksList class="note-view-page__tasks" :tasks="note.tasks" :is-preview="false" />
+    <TasksList class="note-view-page__tasks" :tasks="note.tasks" :is-preview="false" @update-tasks="onTasksUpdate" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref, toRaw } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useNote } from "@/entities/Note/model/useNote";
+import { useEditNote } from "@/features/EditNote/model/useEditNote";
 import { formatDate } from "@/entities/Note/lib/dateFormat";
-import type { INote } from "@/entities/Note/model/types";
+import type { INote, ITask } from "@/entities/Note/model/types";
 import TasksList from "@/entities/Note/ui/TasksList.vue";
 import PageContentHeader from "@/shared/ui/PageContentHeader.vue";
 import Button from "@/shared/ui/Button.vue";
@@ -27,6 +28,7 @@ import Button from "@/shared/ui/Button.vue";
 const route = useRoute();
 const router = useRouter();
 const { getNoteById } = useNote();
+const { editNoteForm } = useEditNote();
 
 const noteId = route.params.id;
 const note = ref<INote | null>(null);
@@ -38,6 +40,13 @@ const editNoteHandler = () => {
 onMounted(() => {
   note.value = getNoteById(Number(noteId));
 });
+
+const onTasksUpdate = (updatedTasks: ITask[]) => {
+  if (!note.value) return;
+
+  note.value.tasks = updatedTasks;
+  editNoteForm(note.value);
+};
 </script>
 
 <style>
