@@ -3,3 +3,5 @@ export interface IHeaderLink {
   link: string;
   title: string;
 }
+
+export type TTheme = "light" | "dark";

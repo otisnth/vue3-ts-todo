@@ -2,7 +2,7 @@
   <div class="error-modal">
     <div class="error-modal__content">
       <div class="error-modal__message-container">
-        <SvgIcon name="ALERT" width="36" height="36" color="#E01B1B" />
+        <SvgIcon class="error-modal__icon" name="ALERT" width="36" height="36" />
         <p class="error-modal__message">{{ message }}</p>
       </div>
       <Button @click="closeModal" class="error-modal__button">ОК</Button>
@@ -44,9 +44,14 @@ const { closeModal } = useModal();
   gap: 8px;
 }
 
+.error-modal__icon {
+  color: var(--red);
+}
+
 .error-modal__message {
-  color: var(--text-primary);
   font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .error-modal__button {

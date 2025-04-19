@@ -19,7 +19,7 @@ interface IProps {
   name: keyof typeof ICONS;
   width?: number | string;
   height?: number | string;
-  color: string;
+  color?: string;
 }
 
 const { name, width = 24, height = 24, color = "currentColor" } = defineProps<IProps>();

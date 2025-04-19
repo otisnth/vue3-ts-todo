@@ -2,7 +2,7 @@
   <div class="note__container">
     <div class="note__info-area">
       <div class="note__info-header" @click="handleNoteClick">
-        <SvgIcon class="note__icon" name="WAIT" width="24" height="24" color="#D6D6D6" />
+        <SvgIcon class="note__icon" name="WAIT" width="24" height="24" />
         <span class="note__title">{{ note.title }}</span>
       </div>
       <TasksList class="note__task-list" :tasks="noteTasks" :is-preview="true" />
@@ -13,19 +13,12 @@
     </div>
 
     <div class="note__button-area">
-      <div class="note__button">
-        <SvgIcon class="note__icon" name="EDIT" width="21" height="20" color="#FFD166" @click="editNoteHandler" />
+      <div class="note__button note__button--edit">
+        <SvgIcon class="note__icon" name="EDIT" width="24" height="24" @click="editNoteHandler" />
       </div>
 
-      <div class="note__button">
-        <SvgIcon
-          class="note__icon"
-          name="TRASH"
-          width="21"
-          height="20"
-          color="#E01B1B"
-          @click="emit('delete-note', note.id)"
-        />
+      <div class="note__button note__button--delete">
+        <SvgIcon class="note__icon" name="TRASH" width="24" height="24" @click="emit('delete-note', note.id)" />
       </div>
     </div>
   </div>
@@ -87,16 +80,25 @@ const editNoteHandler = () => {
   align-items: center;
   gap: 12px;
   cursor: pointer;
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 .note__title {
-  color: var(--text-primary);
   font-size: 16px;
 }
 
 .note__button {
   padding: 12px;
   cursor: pointer;
+}
+
+.note__button--edit {
+  color: var(--peach);
+}
+
+.note__button--delete {
+  color: var(--red);
 }
 
 .note__icon {

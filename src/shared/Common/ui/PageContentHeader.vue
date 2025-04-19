@@ -6,7 +6,6 @@
       name="ARROW_LEFT"
       width="40"
       height="40"
-      color="#d6d6d6"
       @click="backButtonHandler"
     />
     <h1 class="page-content-header__title">{{ title }}</h1>
@@ -34,6 +33,7 @@ const backButtonHandler = () => {
 <style>
 .page-content-header {
   background-color: var(--container-bg);
+  color: var(--text-primary);
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
@@ -44,7 +44,6 @@ const backButtonHandler = () => {
 
 .page-content-header__title {
   display: block;
-  color: var(--text-primary);
   grid-column: 2;
   justify-self: center;
 }

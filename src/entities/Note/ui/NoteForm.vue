@@ -64,4 +64,8 @@ watch(
   display: flex;
   align-items: center;
 }
+
+.note-form__task-input {
+  width: 100%;
+}
 </style>

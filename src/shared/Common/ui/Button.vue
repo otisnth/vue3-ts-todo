@@ -29,7 +29,7 @@ const { outlined = false, color = "ORANGE" } = defineProps<IProps>();
 
 .button__orange {
   background-color: var(--orange);
-  color: var(--text-primary);
+  color: var(--light-grey);
   border: 1px solid var(--orange);
 }
 
@@ -40,7 +40,7 @@ const { outlined = false, color = "ORANGE" } = defineProps<IProps>();
 
 .button__red {
   background-color: var(--red);
-  color: var(--text-primary);
+  color: var(--light-grey);
   border: 1px solid var(--red);
 }
 
@@ -51,7 +51,7 @@ const { outlined = false, color = "ORANGE" } = defineProps<IProps>();
 
 .button__peach {
   background-color: var(--peach);
-  color: var(--text-primary);
+  color: var(--light-grey);
   border: 1px solid var(--peach);
 }
 

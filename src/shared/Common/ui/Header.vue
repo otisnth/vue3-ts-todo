@@ -3,21 +3,28 @@
     <div class="header__logo">
       <img src="/to-do-list.svg" alt="Logo" />
     </div>
+
     <div class="header__links">
       <router-link class="header__link" v-for="item in HEADER_LINKS" :key="item.id" :to="item.link">
         {{ item.title }}
       </router-link>
     </div>
+
+    <Toggler class="header__toggler" v-model="themeBoolean" />
   </header>
 </template>
 
 <script setup lang="ts">
-import { HEADER_LINKS } from "../model";
+import Toggler from "./Toggler.vue";
+import { HEADER_LINKS, useTheme } from "../model";
+
+const { themeBoolean } = useTheme();
 </script>
 
 <style>
 .header__container {
-  display: flex;
+  display: grid;
+  grid-template-columns: min-content 1fr min-content;
   padding: 12px 32px;
   gap: 40px;
   background-color: var(--container-bg);

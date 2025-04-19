@@ -1,4 +1,4 @@
-import type { IHeaderLink } from "./types";
+import type { IHeaderLink, TTheme } from "./types";
 
 export const HEADER_LINKS: Array<IHeaderLink> = [
   {
@@ -12,3 +12,6 @@ export const HEADER_LINKS: Array<IHeaderLink> = [
     title: "Добавить заметку",
   },
 ];
+
+export const THEME_KEY = "theme";
+export const DEFAULT_THEME: TTheme = "light";
