@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
 
-const baseUrl = `${process.env.BASE_URL}` || "/";
+const baseUrl = `/${process.env.BASE_URL}` || "/";
 // https://vitejs.dev/config/
 export default defineConfig({
   base: baseUrl,
