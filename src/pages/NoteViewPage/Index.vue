@@ -3,8 +3,8 @@
   <div v-if="note" class="note-view-page">
     <div class="note-view-page__header">
       <h2 class="note-view-page__title">{{ note.title }}</h2>
-      <Button class="note-view-page__button" outlined color="PEACH" @click="editNoteHandler"> Изменить </Button>
-      <Button class="note-view-page__button" color="RED"> Удалить </Button>
+      <Button class="note-view-page__button" outlined color="PEACH" @click="editNoteHandler">Изменить</Button>
+      <Button class="note-view-page__button" color="RED" @click="deleteNoteHandler">Удалить</Button>
     </div>
     <p class="note-view-page__date">
       <span class="note-view-page__date-text">Создано:</span>
@@ -23,13 +23,16 @@ import { formatDate } from "@/shared/Common/lib/dateFormat";
 import type { INote, ITask } from "@/entities/Note/model/types";
 import TasksList from "@/entities/Note/ui/TasksList.vue";
 import { PageContentHeader, Button } from "@shared/Common";
+import { useModal } from "@/shared/Modal/model/useModal";
+import DeleteNoteModal from "@/features/DeleteNote/ui/DeleteNoteModal.vue";
 
 const route = useRoute();
 const router = useRouter();
 const { getNoteById } = useNote();
 const { editNoteForm } = useEditNote();
+const { openModal } = useModal();
 
-const noteId = route.params.id;
+const noteId = Number(route.params.id);
 const note = ref<INote | null>(null);
 
 const editNoteHandler = () => {
@@ -37,7 +40,7 @@ const editNoteHandler = () => {
 };
 
 onMounted(() => {
-  note.value = getNoteById(Number(noteId));
+  note.value = getNoteById(noteId);
 });
 
 const onTasksUpdate = (updatedTasks: ITask[]) => {
@@ -45,6 +48,13 @@ const onTasksUpdate = (updatedTasks: ITask[]) => {
 
   note.value.tasks = updatedTasks;
   editNoteForm(note.value);
+};
+
+const deleteNoteHandler = () => {
+  openModal({
+    component: DeleteNoteModal,
+    props: { noteId },
+  });
 };
 </script>
 
