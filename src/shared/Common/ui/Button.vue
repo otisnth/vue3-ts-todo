@@ -28,35 +28,35 @@ const { outlined = false, color = "ORANGE" } = defineProps<IProps>();
 }
 
 .button__orange {
-  background-color: #e0621b;
-  color: #d6d6d6;
-  border: 1px solid #e0621b;
+  background-color: var(--orange);
+  color: var(--text-primary);
+  border: 1px solid var(--orange);
 }
 
 .button__orange.button__outlined {
   background-color: transparent;
-  color: #e0621b;
+  color: var(--orange);
 }
 
 .button__red {
-  background-color: #e01b1b;
-  color: #d6d6d6;
-  border: 1px solid #e01b1b;
+  background-color: var(--red);
+  color: var(--text-primary);
+  border: 1px solid var(--red);
 }
 
 .button__red.button__outlined {
   background-color: transparent;
-  color: #e01b1b;
+  color: var(--red);
 }
 
 .button__peach {
-  background-color: #ffd166;
-  color: #d6d6d6;
-  border: 1px solid #ffd166;
+  background-color: var(--peach);
+  color: var(--text-primary);
+  border: 1px solid var(--peach);
 }
 
 .button__peach.button__outlined {
   background-color: transparent;
-  color: #ffd166;
+  color: var(--peach);
 }
 </style>

@@ -18,7 +18,7 @@ import { EditNoteForm } from "@features/EditNote";
   margin: 0 auto;
   width: 50%;
   padding: 16px 32px;
-  background-color: #1f1f1f;
+  background-color: var(--container-bg);
   border-radius: 4px;
 }
 </style>

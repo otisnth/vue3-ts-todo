@@ -3,6 +3,22 @@
   src: url(./Nunito-Regular.ttf);
 }
 
+:root {
+  --page-bg: #000000;
+  --container-bg: #1f1f1f;
+  --subcontainer-bg: #d6d6d619;
+
+  --text-primary: #d6d6d6;
+  --text-secondary: #848484;
+  --text-header: #ffffff;
+
+  --accent-color: #000000;
+
+  --orange: #e0621b;
+  --red: #e01b1b;
+  --peach: #ffd166;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -28,5 +44,5 @@ a {
 body {
   display: flex;
   place-items: center;
-  background-color: #000;
+  background-color: var(--page-bg);
 }

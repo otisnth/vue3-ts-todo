@@ -56,7 +56,7 @@ const onTasksUpdate = (updatedTasks: ITask[]) => {
   width: 50%;
   gap: 16px;
   padding: 16px 32px;
-  background-color: #1f1f1f;
+  background-color: var(--container-bg);
   border-radius: 4px;
 }
 
@@ -69,16 +69,16 @@ const onTasksUpdate = (updatedTasks: ITask[]) => {
 
 .note-view-page__title {
   font-size: 24px;
-  color: #d6d6d6;
+  color: var(--text-primary);
 }
 
 .note-view-page__date-text {
   font-weight: 600;
-  color: #848484;
+  color: var(--text-secondary);
 }
 
 .note-view-page__date-value {
-  color: #d6d6d6;
+  color: var(--text-primary);
   padding-left: 8px;
 }
 </style>

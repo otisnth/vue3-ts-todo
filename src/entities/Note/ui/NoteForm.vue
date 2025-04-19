@@ -57,7 +57,7 @@ watch(
 .note-form__tasks-title {
   font-size: 18px;
   font-weight: 500;
-  color: #d6d6d6;
+  color: var(--text-primary);
 }
 
 .note-form__task {

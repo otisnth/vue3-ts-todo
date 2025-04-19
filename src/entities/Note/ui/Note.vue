@@ -62,7 +62,7 @@ const editNoteHandler = () => {
   display: flex;
   gap: 4px;
   justify-content: space-between;
-  background-color: #1f1f1f;
+  background-color: var(--container-bg);
   border-radius: 4px;
   padding: 16px 32px;
 }
@@ -90,7 +90,7 @@ const editNoteHandler = () => {
 }
 
 .note__title {
-  color: #d6d6d6;
+  color: var(--text-primary);
   font-size: 16px;
 }
 
@@ -108,12 +108,12 @@ const editNoteHandler = () => {
 }
 
 .note__info-footer-text {
-  color: #848484;
+  color: var(--text-secondary);
   font-weight: 600;
 }
 
 .note__info-date {
-  color: #d6d6d6;
+  color: var(--text-primary);
   font-size: 14px;
   padding-left: 8px;
 }

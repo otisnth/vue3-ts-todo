@@ -25,13 +25,13 @@ const { label = "" } = defineProps<IProps>();
   background-color: transparent;
   outline: none;
   border: none;
-  border-bottom: 1px solid #d6d6d619;
+  border-bottom: 1px solid var(--subcontainer-bg);
   font-size: 16px;
-  color: #d6d6d6;
+  color: var(--text-primary);
 }
 
 .shared-input__label {
   font-size: 18px;
-  color: #d6d6d6;
+  color: var(--text-primary);
 }
 </style>

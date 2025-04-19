@@ -38,7 +38,7 @@ const confirmDelete = () => {
 .delete-note-modal__title {
   font-size: 24px;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-primary);
 }
 
 .delete-note-modal__buttons {

@@ -18,13 +18,13 @@ const { isDisabled = false, label = "" } = defineProps<IProps>();
 
 <style>
 .checkbox__check {
-  accent-color: #000000;
+  accent-color: var(--accent-color);
   width: 16px;
   height: 16px;
 }
 
 .checkbox__label {
-  color: #d6d6d6;
+  color: var(--text-primary);
   font-size: 14px;
   padding-left: 6px;
 }

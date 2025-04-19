@@ -45,7 +45,7 @@ const { closeModal } = useModal();
 }
 
 .error-modal__message {
-  color: #d6d6d6;
+  color: var(--text-primary);
   font-size: 16px;
 }
 

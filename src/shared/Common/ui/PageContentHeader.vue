@@ -33,7 +33,7 @@ const backButtonHandler = () => {
 
 <style>
 .page-content-header {
-  background-color: #1f1f1f;
+  background-color: var(--container-bg);
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
@@ -44,7 +44,7 @@ const backButtonHandler = () => {
 
 .page-content-header__title {
   display: block;
-  color: #d6d6d6;
+  color: var(--text-primary);
   grid-column: 2;
   justify-self: center;
 }

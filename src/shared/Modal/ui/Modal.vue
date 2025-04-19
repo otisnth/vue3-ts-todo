@@ -39,7 +39,7 @@ defineProps<IModalProps>();
 
 .modal__content {
   position: relative;
-  background: #1f1f1f;
+  background: var(--container-bg);
   padding: 20px;
   border-radius: 8px;
   z-index: 1001;

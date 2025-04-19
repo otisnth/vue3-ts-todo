@@ -20,15 +20,15 @@ import { HEADER_LINKS } from "../model";
   display: flex;
   padding: 12px 32px;
   gap: 40px;
-  background-color: #1f1f1f;
-  color: #d6d6d6;
+  background-color: var(--container-bg);
+  color: var(--text-primary);
   border-radius: 4px;
 }
 
 .header__logo {
   width: 40px;
   width: 40px;
-  color: #e0621b;
+  color: var(--orange);
 }
 
 .header__links {
@@ -37,7 +37,7 @@ import { HEADER_LINKS } from "../model";
 }
 
 .header__link {
-  background-color: #d6d6d619;
+  background-color: var(--subcontainer-bg);
   border-radius: 12px;
   padding: 12px;
   font-size: 20px;
@@ -45,7 +45,7 @@ import { HEADER_LINKS } from "../model";
 }
 
 .header__link.router-link-active {
-  background-color: #e0621b;
-  color: #fff;
+  background-color: var(--orange);
+  color: var(--text-header);
 }
 </style>
