@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import Button from "@/shared/ui/Button.vue";
+import { Button } from "@shared/Common";
 import { useDeleteNote } from "../model/useDeleteNote";
 
 const props = defineProps<{

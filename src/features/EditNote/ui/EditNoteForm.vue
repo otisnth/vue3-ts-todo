@@ -4,11 +4,11 @@
 
     <div class="edit-note-form__button-row">
       <Button @click="cancelButtonHandler" class="edit-note-form__button" :outlined="true">
-        <SvgIcon name="cancel" width="30" height="30" color="#e0621b" />
+        <SvgIcon name="CANCEL" width="30" height="30" color="#e0621b" />
         <span class="edit-note-form__button-text">Отмена</span>
       </Button>
       <Button @click="saveButtonHandler" class="edit-note-form__button">
-        <SvgIcon name="editTodo" width="30" height="30" color="#FFFFFF" />
+        <SvgIcon name="EDIT_TODO" width="30" height="30" color="#FFFFFF" />
         <span class="edit-note-form__button-text">Сохранить</span>
       </Button>
     </div>
@@ -19,8 +19,7 @@
 import { reactive, onMounted, toRaw } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
-import SvgIcon from "@/shared/ui/SvgIcon.vue";
-import Button from "@/shared/ui/Button.vue";
+import { Button, SvgIcon } from "@shared/Common";
 import NoteForm from "@/entities/Note/ui/NoteForm.vue";
 
 import { useNote } from "@/entities/Note/model/useNote";

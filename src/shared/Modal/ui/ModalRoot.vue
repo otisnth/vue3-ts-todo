@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import Modal from "./Modal.vue";
-import { useModal } from "./useModal";
+import { useModal } from "../model";
 
 const { isModalOpen, modalComponent, modalProps, closeModal } = useModal();
 </script>

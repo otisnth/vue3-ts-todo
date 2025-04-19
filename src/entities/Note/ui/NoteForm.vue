@@ -17,8 +17,7 @@ import { computed, watch } from "vue";
 
 import type { INote } from "@/entities/Note/model/types";
 
-import Input from "@/shared/ui/Input.vue";
-import Check from "@/shared/ui/Check.vue";
+import { Input, Check } from "@shared/Common";
 
 interface IProps {
   isEditForm?: boolean;

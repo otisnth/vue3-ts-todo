@@ -2,7 +2,7 @@
   <div class="note__container">
     <div class="note__info-area">
       <div class="note__info-header" @click="handleNoteClick">
-        <SvgIcon class="note__icon" name="wait" width="24" height="24" color="#D6D6D6" />
+        <SvgIcon class="note__icon" name="WAIT" width="24" height="24" color="#D6D6D6" />
         <span class="note__title">{{ note.title }}</span>
       </div>
       <TasksList class="note__task-list" :tasks="noteTasks" :is-preview="true" />
@@ -14,11 +14,11 @@
 
     <div class="note__button-area">
       <div class="note__button">
-        <SvgIcon class="note__icon" name="edit" width="21" height="20" color="#FFD166" @click="editNoteHandler" />
+        <SvgIcon class="note__icon" name="EDIT" width="21" height="20" color="#FFD166" @click="editNoteHandler" />
       </div>
 
       <div class="note__button">
-        <SvgIcon class="note__icon" name="trash" width="21" height="20" color="#E01B1B" @click="deleteNoteHandler" />
+        <SvgIcon class="note__icon" name="TRASH" width="21" height="20" color="#E01B1B" @click="deleteNoteHandler" />
       </div>
     </div>
   </div>
@@ -28,10 +28,10 @@
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 import type { INote } from "@/entities/Note/model/types";
-import { useModal } from "@/shared/ui/Modal/useModal";
+import { useModal } from "@/shared/Modal/model/useModal";
 import DeleteNoteModal from "@/features/DeleteNote/ui/DeleteNoteModal.vue";
-import { formatDate } from "../lib/dateFormat";
-import SvgIcon from "@/shared/ui/SvgIcon.vue";
+import { formatDate } from "../../../shared/Common/lib/dateFormat";
+import { SvgIcon } from "@shared/Common";
 import TasksList from "./TasksList.vue";
 
 const router = useRouter();

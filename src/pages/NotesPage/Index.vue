@@ -10,7 +10,7 @@
 import { computed } from "vue";
 import { useNote } from "@/entities/Note/model/useNote";
 import Note from "@/entities/Note/ui/Note.vue";
-import PageContentHeader from "@/shared/ui/PageContentHeader.vue";
+import { PageContentHeader } from "@shared/Common";
 import { sorting } from "@/entities/Note/lib/sorts";
 
 const { notes } = useNote();

@@ -1,18 +1,17 @@
 <template>
   <div class="shared-input">
     <label v-if="label" class="shared-input__label">{{ label }}</label>
-    <input v-model="model" class="shared-input__input" type="text" />
+    <input v-model="value" class="shared-input__input" type="text" />
   </div>
 </template>
 
 <script setup lang="ts">
-const model = defineModel();
-const props = defineProps({
-  label: {
-    type: String,
-    default: "",
-  },
-});
+interface IProps {
+  label?: string;
+}
+
+const value = defineModel<string>({ required: true });
+const { label = "" } = defineProps<IProps>();
 </script>
 
 <style>

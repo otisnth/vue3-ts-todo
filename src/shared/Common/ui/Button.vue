@@ -1,26 +1,18 @@
 <template>
-  <button :class="['button', `button__${color}`, { button__outlined: outlined }]">
+  <button :class="['button', `button__${BUTTON_COLOR[color]}`, { button__outlined: outlined }]">
     <slot></slot>
   </button>
 </template>
 
 <script setup lang="ts">
-enum ButtonColor {
-  red = "red",
-  peach = "peach",
-  orange = "orange",
+import { BUTTON_COLOR } from "../model";
+
+interface IProps {
+  outlined?: boolean;
+  color?: keyof typeof BUTTON_COLOR;
 }
 
-defineProps({
-  outlined: {
-    type: Boolean,
-    default: false,
-  },
-  color: {
-    type: String as () => keyof typeof ButtonColor,
-    default: ButtonColor.orange,
-  },
-});
+const { outlined = false, color = "ORANGE" } = defineProps<IProps>();
 </script>
 
 <style>

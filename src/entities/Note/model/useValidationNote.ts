@@ -1,6 +1,6 @@
 import type { INote } from "@/entities/Note/model/types";
-import { useModal } from "@/shared/ui/Modal/useModal";
-import ErrorModal from "@/shared/ui/Modal/ErrorModal.vue";
+import { useModal } from "@/shared/Modal/model/useModal";
+import ErrorModal from "@/shared/Modal/ui/ErrorModal.vue";
 
 interface IValidationRule {
   field: keyof INote;

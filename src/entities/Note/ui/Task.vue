@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import type { ITask } from "@/entities/Note/model/types";
-import Check from "@/shared/ui/Check.vue";
+import { Check } from "@shared/Common";
 
 const { task, isPreview = false } = defineProps<{ task: ITask; isPreview?: boolean }>();
 

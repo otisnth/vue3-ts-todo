@@ -3,7 +3,7 @@
     <SvgIcon
       v-if="isBackButton"
       class="page-content-header__back-button"
-      name="arrowLeft"
+      name="ARROW_LEFT"
       width="40"
       height="40"
       color="#d6d6d6"
@@ -15,12 +15,14 @@
 
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-import SvgIcon from "@/shared/ui/SvgIcon.vue";
+import SvgIcon from "./SvgIcon.vue";
 
-defineProps<{
+interface IProps {
   title: string;
   isBackButton?: boolean;
-}>();
+}
+
+const { title, isBackButton = false } = defineProps<IProps>();
 
 const router = useRouter();
 

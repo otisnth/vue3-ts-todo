@@ -1,10 +1,6 @@
 import { ref, shallowRef } from "vue";
 import type { Component } from "vue";
-
-interface IModalData {
-  component: Component;
-  props?: Record<string, any>;
-}
+import type { IModalData } from "./types";
 
 const isModalOpen = ref(false);
 const modalComponent = shallowRef<Component | null>(null);

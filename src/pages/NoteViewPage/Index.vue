@@ -3,8 +3,8 @@
   <div v-if="note" class="note-view-page">
     <div class="note-view-page__header">
       <h2 class="note-view-page__title">{{ note.title }}</h2>
-      <Button class="note-view-page__button" outlined color="peach" @click="editNoteHandler"> Изменить </Button>
-      <Button class="note-view-page__button" color="red"> Удалить </Button>
+      <Button class="note-view-page__button" outlined color="PEACH" @click="editNoteHandler"> Изменить </Button>
+      <Button class="note-view-page__button" color="RED"> Удалить </Button>
     </div>
     <p class="note-view-page__date">
       <span class="note-view-page__date-text">Создано:</span>
@@ -19,11 +19,10 @@ import { onMounted, ref, toRaw } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useNote } from "@/entities/Note/model/useNote";
 import { useEditNote } from "@/features/EditNote/model/useEditNote";
-import { formatDate } from "@/entities/Note/lib/dateFormat";
+import { formatDate } from "@/shared/Common/lib/dateFormat";
 import type { INote, ITask } from "@/entities/Note/model/types";
 import TasksList from "@/entities/Note/ui/TasksList.vue";
-import PageContentHeader from "@/shared/ui/PageContentHeader.vue";
-import Button from "@/shared/ui/Button.vue";
+import { PageContentHeader, Button } from "@shared/Common";
 
 const route = useRoute();
 const router = useRouter();
