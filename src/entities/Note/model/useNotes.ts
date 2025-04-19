@@ -5,17 +5,16 @@ import { deepClone } from "@shared/Common";
 const notes = ref<INote[]>([
   {
     id: 1,
-    title:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit.Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+    title: "Заметка 1",
     createdAt: "1740983760374",
     tasks: [
       {
-        title: "Dolor sit amet consectetur adipisicing elit.",
+        title: "Задача 1 у заметки 1",
         isDone: true,
         createdAt: "1740983760374",
       },
       {
-        title: "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+        title: "Задача 2 у заметки 1",
         isDone: false,
         createdAt: "1740983760374",
       },
@@ -23,18 +22,18 @@ const notes = ref<INote[]>([
   },
   {
     id: 2,
-    title: "Dolor sit amet consectetur adipisicing elit.",
-    createdAt: "1740983760374",
+    title: "Заметка 2",
+    createdAt: "1740983900900",
     tasks: [
       {
-        title: "Dolor sit amet consectetur adipisicing elit.",
+        title: "Задача 1 у заметки 2",
         isDone: true,
-        createdAt: "1740983760374",
+        createdAt: "1740983900900",
       },
       {
-        title: "Lorem ipsum",
+        title: "Задача 2 у заметки 2",
         isDone: true,
-        createdAt: "1740983760374",
+        createdAt: "1740983900900",
       },
     ],
   },

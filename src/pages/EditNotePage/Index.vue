@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import { PageContentHeader } from "@shared/Common";
-import EditNoteForm from "@/features/EditNote/ui/EditNoteForm.vue";
+import { EditNoteForm } from "@features/EditNote";
 </script>
 
 <style>

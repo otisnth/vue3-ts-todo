@@ -2,17 +2,17 @@
   <PageContentHeader title="Список заметок" />
 
   <div class="notes-list__container">
-    <Note v-for="(item, index) in filteredNotes" :key="index" :note="item" />
+    <Note v-for="item in filteredNotes" :key="item.id" :note="item" @delete-note="deleteNoteHandler" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { useNotes } from "@/entities/Note";
-import Note from "@/entities/Note/ui/Note.vue";
+import { useDeleteNote } from "@features/DeleteNote";
+import { Note, useNotes, sorting } from "@entities/Note";
 import { PageContentHeader } from "@shared/Common";
-import { sorting } from "@/entities/Note/lib/sorts";
 
+const { deleteNoteHandler } = useDeleteNote();
 const { notes } = useNotes();
 
 const filteredNotes = computed(() =>

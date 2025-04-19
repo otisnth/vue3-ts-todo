@@ -4,7 +4,7 @@
     <div class="note-view-page__header">
       <h2 class="note-view-page__title">{{ note.title }}</h2>
       <Button class="note-view-page__button" outlined color="PEACH" @click="editNoteHandler">Изменить</Button>
-      <Button class="note-view-page__button" color="RED" @click="deleteNoteHandler">Удалить</Button>
+      <Button class="note-view-page__button" color="RED" @click="deleteNoteHandler(noteId)">Удалить</Button>
     </div>
     <p class="note-view-page__date">
       <span class="note-view-page__date-text">Создано:</span>
@@ -17,19 +17,17 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { useNotes, TasksList } from "@entities/Note";
-import { useEditNote } from "@/features/EditNote/model/useEditNote";
-import { formatDate } from "@/shared/Common/lib/dateFormat";
+import { useEditNote } from "@features/EditNote";
+import { useDeleteNote } from "@features/DeleteNote";
 import type { INote, ITask } from "@entities/Note";
-import { PageContentHeader, Button } from "@shared/Common";
-import { useModal } from "@/shared/Modal/model/useModal";
-import DeleteNoteModal from "@/features/DeleteNote/ui/DeleteNoteModal.vue";
+import { useNotes, TasksList } from "@entities/Note";
+import { PageContentHeader, Button, formatDate } from "@shared/Common";
 
 const route = useRoute();
 const router = useRouter();
 const { getNoteById } = useNotes();
 const { editNoteForm } = useEditNote();
-const { openModal } = useModal();
+const { deleteNoteHandler } = useDeleteNote();
 
 const noteId = Number(route.params.id);
 const note = ref<INote | null>(null);
@@ -47,13 +45,6 @@ const onTasksUpdate = (updatedTasks: ITask[]) => {
 
   note.value.tasks = updatedTasks;
   editNoteForm(note.value);
-};
-
-const deleteNoteHandler = () => {
-  openModal({
-    component: DeleteNoteModal,
-    props: { noteId },
-  });
 };
 </script>
 

@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import AddNoteForm from "@/features/AddNote/ui/AddNoteForm.vue";
+import { AddNoteForm } from "@features/AddNote";
 import { PageContentHeader } from "@shared/Common";
 </script>
 

@@ -20,10 +20,10 @@ const emit = defineEmits<{
   (e: "close"): void;
 }>();
 
-const { deleteNoteHandler } = useDeleteNote();
+const { processDeleteNote } = useDeleteNote();
 
 const confirmDelete = () => {
-  deleteNoteHandler(props.noteId);
+  processDeleteNote(props.noteId);
   emit("close");
 };
 </script>

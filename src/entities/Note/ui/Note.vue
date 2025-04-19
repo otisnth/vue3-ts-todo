@@ -18,7 +18,14 @@
       </div>
 
       <div class="note__button">
-        <SvgIcon class="note__icon" name="TRASH" width="21" height="20" color="#E01B1B" @click="deleteNoteHandler" />
+        <SvgIcon
+          class="note__icon"
+          name="TRASH"
+          width="21"
+          height="20"
+          color="#E01B1B"
+          @click="emit('delete-note', note.id)"
+        />
       </div>
     </div>
   </div>
@@ -28,34 +35,25 @@
 import { computed } from "vue";
 import { useRouter } from "vue-router";
 import type { INote } from "../model";
-import { useModal } from "@shared/Modal";
-
-import DeleteNoteModal from "@/features/DeleteNote/ui/DeleteNoteModal.vue";
-
 import { SvgIcon, formatDate } from "@shared/Common";
 import TasksList from "./TasksList.vue";
 
 const router = useRouter();
 
-const props = defineProps<{ note: INote }>();
+const { note } = defineProps<{ note: INote }>();
 
-const noteTasks = computed(() => props.note.tasks);
+const emit = defineEmits<{
+  (e: "delete-note", noteId: number): void;
+}>();
+
+const noteTasks = computed(() => note.tasks);
 
 const handleNoteClick = () => {
-  router.push(`/note/${props.note.id}`);
+  router.push(`/note/${note.id}`);
 };
 
 const editNoteHandler = () => {
-  router.push({ name: "editNote", params: { id: props.note.id } });
-};
-
-const { openModal } = useModal();
-
-const deleteNoteHandler = () => {
-  openModal({
-    component: DeleteNoteModal,
-    props: { noteId: props.note.id },
-  });
+  router.push({ name: "editNote", params: { id: note.id } });
 };
 </script>
 
