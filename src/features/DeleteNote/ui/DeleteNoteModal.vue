@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { Button } from "@shared/Common";
-import { useDeleteNote } from "../model/useDeleteNote";
+import { useDeleteNote } from "../model";
 
 const props = defineProps<{
   noteId: number;

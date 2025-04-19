@@ -20,12 +20,9 @@ import { reactive, toRaw } from "vue";
 import { useRouter } from "vue-router";
 
 import { Button, SvgIcon } from "@shared/Common";
-import NoteForm from "@/entities/Note/ui/NoteForm.vue";
-
-import type { INote } from "@/entities/Note/model/types";
-
-import { useAddNote } from "@/features/AddNote/model/useAddNote";
-import { useValidationNote } from "@/entities/Note/model/useValidationNote";
+import type { INote } from "@entities/Note";
+import { NoteForm, useValidationNote } from "@entities/Note";
+import { useAddNote } from "../model";
 
 const router = useRouter();
 const { validateNote } = useValidationNote();

@@ -20,9 +20,9 @@ import { reactive, onMounted, toRaw } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
 import { Button, SvgIcon } from "@shared/Common";
-import { useNotes, useValidationNote, NoteForm } from "@entities/Note";
 import type { INote } from "@entities/Note";
-import { useEditNote } from "@/features/EditNote/model/useEditNote";
+import { useNotes, useValidationNote, NoteForm } from "@entities/Note";
+import { useEditNote } from "../model";
 
 const router = useRouter();
 const route = useRoute();
