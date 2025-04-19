@@ -1,4 +1,4 @@
-import type { INote, ITask } from "../model/types";
+import type { INote, ITask } from "../model";
 
 type NoteSortField = Extract<keyof INote, "createdAt">;
 type TaskSortField = Extract<keyof ITask, "createdAt" | "isDone">;

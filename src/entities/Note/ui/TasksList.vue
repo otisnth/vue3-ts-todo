@@ -12,10 +12,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import type { ITask } from "@/entities/Note/model/types";
+import type { ITask } from "../model";
+import { filtering, sorting } from "../lib";
 import Task from "./Task.vue";
-import { filtering } from "@/entities/Note/lib/filters";
-import { sorting } from "@/entities/Note/lib/sorts";
 
 const { tasks, isPreview } = defineProps<{ tasks: Array<ITask>; isPreview: boolean }>();
 
@@ -54,5 +53,3 @@ const onUpdateTask = (index: number, updatedTask: ITask) => {
   emit("update-tasks", filteredTasks.value);
 };
 </script>
-
-<style></style>

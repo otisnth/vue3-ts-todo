@@ -1,7 +1,6 @@
 import { ref } from "vue";
-
 import type { INote } from "./types";
-import { deepClone } from "@/shared/Common/lib/deepClone";
+import { deepClone } from "@shared/Common";
 
 const notes = ref<INote[]>([
   {
@@ -41,7 +40,7 @@ const notes = ref<INote[]>([
   },
 ]);
 
-export const useNote = () => {
+export const useNotes = () => {
   const addNote = (note: INote) => {
     notes.value.push(note);
   };

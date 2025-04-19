@@ -1,4 +1,4 @@
-import type { ITask } from "../model/types";
+import type { ITask } from "../model";
 
 type TaskFilterField = Extract<keyof ITask, "isDone">;
 type TaskFilterFn<T> = (item: T, value: any) => boolean;

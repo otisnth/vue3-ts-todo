@@ -27,11 +27,12 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRouter } from "vue-router";
-import type { INote } from "@/entities/Note/model/types";
-import { useModal } from "@/shared/Modal/model/useModal";
+import type { INote } from "../model";
+import { useModal } from "@shared/Modal";
+
 import DeleteNoteModal from "@/features/DeleteNote/ui/DeleteNoteModal.vue";
-import { formatDate } from "../../../shared/Common/lib/dateFormat";
-import { SvgIcon } from "@shared/Common";
+
+import { SvgIcon, formatDate } from "@shared/Common";
 import TasksList from "./TasksList.vue";
 
 const router = useRouter();

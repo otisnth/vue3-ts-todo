@@ -1,6 +1,5 @@
-import type { INote } from "@/entities/Note/model/types";
-import { useModal } from "@/shared/Modal/model/useModal";
-import ErrorModal from "@/shared/Modal/ui/ErrorModal.vue";
+import type { INote } from "./types";
+import { useModal, ErrorModal } from "@shared/Modal";
 
 interface IValidationRule {
   field: keyof INote;
@@ -11,7 +10,7 @@ interface IValidationRule {
 const defaultValidationRules: IValidationRule[] = [
   {
     field: "title",
-    validate: (value: string) => !!value?.trim(),
+    validate: (value: string) => Boolean(value?.trim()),
     message: "Заголовок заметки является обязательным полем",
   },
 ];

@@ -1,9 +1,8 @@
-import type { INote } from "@/entities/Note/model/types";
-
-import { useNote } from "@/entities/Note/model/useNote";
+import type { INote } from "@entities/Note";
+import { useNotes } from "@entities/Note";
 
 export const useAddNote = () => {
-  const { addNote } = useNote();
+  const { addNote } = useNotes();
 
   const addNoteForm = (note: INote) => {
     note.createdAt = Date.now().toString();

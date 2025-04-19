@@ -1,8 +1,8 @@
-import type { INote } from "@/entities/Note/model/types";
-import { useNote } from "@/entities/Note/model/useNote";
+import type { INote } from "@entities/Note";
+import { useNotes } from "@entities/Note";
 
 export const useEditNote = () => {
-  const { updateNote } = useNote();
+  const { updateNote } = useNotes();
 
   const editNoteForm = (note: INote) => {
     note.tasks = note.tasks.filter((task) => task.title.length);

@@ -14,16 +14,13 @@
 
 <script setup lang="ts">
 import { computed, watch } from "vue";
-
-import type { INote } from "@/entities/Note/model/types";
-
+import type { INote } from "../model";
+import { MIN_DISPLAYED_TASKS } from "../model";
 import { Input, Check } from "@shared/Common";
 
 interface IProps {
   isEditForm?: boolean;
 }
-
-const MAX_DISPLAYED_TASKS = 3;
 
 const { isEditForm = false } = defineProps<IProps>();
 
@@ -34,11 +31,11 @@ const noteTasks = computed(() => note.value.tasks);
 watch(
   () => noteTasks,
   () => {
-    for (let i = 0; i < MAX_DISPLAYED_TASKS - noteTasks.value.length; i++) {
+    for (let i = 0; i < MIN_DISPLAYED_TASKS - noteTasks.value.length; i++) {
       note.value.tasks.push({ title: "", isDone: false, createdAt: "" });
     }
 
-    if (!noteTasks.value.find((task) => task.title === "") && MAX_DISPLAYED_TASKS <= noteTasks.value.length) {
+    if (!noteTasks.value.find((task) => task.title === "") && MIN_DISPLAYED_TASKS <= noteTasks.value.length) {
       note.value.tasks.push({ title: "", isDone: false, createdAt: "" });
     }
   },

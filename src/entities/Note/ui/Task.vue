@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import type { ITask } from "@/entities/Note/model/types";
+import type { ITask } from "../model";
 import { Check } from "@shared/Common";
 
 const { task, isPreview = false } = defineProps<{ task: ITask; isPreview?: boolean }>();

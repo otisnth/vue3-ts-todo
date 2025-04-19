@@ -8,12 +8,12 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { useNote } from "@/entities/Note/model/useNote";
+import { useNotes } from "@/entities/Note";
 import Note from "@/entities/Note/ui/Note.vue";
 import { PageContentHeader } from "@shared/Common";
 import { sorting } from "@/entities/Note/lib/sorts";
 
-const { notes } = useNote();
+const { notes } = useNotes();
 
 const filteredNotes = computed(() =>
   sorting(notes.value, {

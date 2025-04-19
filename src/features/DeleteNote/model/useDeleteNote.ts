@@ -1,8 +1,8 @@
-import { useNote } from "@/entities/Note/model/useNote";
 import { useRouter } from "vue-router";
+import { useNotes } from "@entities/Note";
 
 export const useDeleteNote = () => {
-  const { deleteNote } = useNote();
+  const { deleteNote } = useNotes();
   const router = useRouter();
 
   const deleteNoteHandler = (noteId: number) => {

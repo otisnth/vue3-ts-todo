@@ -15,20 +15,19 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, toRaw } from "vue";
+import { onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { useNote } from "@/entities/Note/model/useNote";
+import { useNotes, TasksList } from "@entities/Note";
 import { useEditNote } from "@/features/EditNote/model/useEditNote";
 import { formatDate } from "@/shared/Common/lib/dateFormat";
-import type { INote, ITask } from "@/entities/Note/model/types";
-import TasksList from "@/entities/Note/ui/TasksList.vue";
+import type { INote, ITask } from "@entities/Note";
 import { PageContentHeader, Button } from "@shared/Common";
 import { useModal } from "@/shared/Modal/model/useModal";
 import DeleteNoteModal from "@/features/DeleteNote/ui/DeleteNoteModal.vue";
 
 const route = useRoute();
 const router = useRouter();
-const { getNoteById } = useNote();
+const { getNoteById } = useNotes();
 const { editNoteForm } = useEditNote();
 const { openModal } = useModal();
 
