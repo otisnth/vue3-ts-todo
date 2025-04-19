@@ -5,7 +5,7 @@
     <div class="note-form__tasks">
       <h3 class="note-form__tasks-title">Задачи</h3>
       <div class="note-form__task" v-for="(item, index) in note.tasks" :key="index">
-        <Check class="note-form__task-check" v-model="item.isDone" :is-disabled="!isEditForm" />
+        <Check v-if="isEditForm" class="note-form__task-check" v-model="item.isDone" />
         <Input class="note-form__task-input" v-model="item.title" />
       </div>
     </div>
