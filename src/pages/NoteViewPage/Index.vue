@@ -26,7 +26,7 @@ import { PageContentHeader, Button, formatDate } from "@shared/Common";
 const route = useRoute();
 const router = useRouter();
 const { getNoteById } = useNotes();
-const { editNoteForm } = useEditNote();
+const { processEditNote } = useEditNote();
 const { deleteNoteHandler } = useDeleteNote();
 
 const noteId = Number(route.params.id);
@@ -47,7 +47,7 @@ const onTasksUpdate = (updatedTasks: ITask[]) => {
   if (!note.value) return;
 
   note.value.tasks = updatedTasks;
-  editNoteForm(note.value);
+  processEditNote(note.value);
 };
 </script>
 

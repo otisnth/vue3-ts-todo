@@ -1,43 +1,9 @@
 import { ref } from "vue";
 import type { INote } from "./types";
 import { deepClone } from "@shared/Common";
+import { STUB_NOTES } from "./config";
 
-const notes = ref<INote[]>([
-  {
-    id: 1,
-    title: "Заметка 1",
-    createdAt: "1740983760374",
-    tasks: [
-      {
-        title: "Задача 1 у заметки 1",
-        isDone: true,
-        createdAt: "1740983760374",
-      },
-      {
-        title: "Задача 2 у заметки 1",
-        isDone: false,
-        createdAt: "1740983760374",
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "Заметка 2",
-    createdAt: "1740983900900",
-    tasks: [
-      {
-        title: "Задача 1 у заметки 2",
-        isDone: true,
-        createdAt: "1740983900900",
-      },
-      {
-        title: "Задача 2 у заметки 2",
-        isDone: true,
-        createdAt: "1740983900900",
-      },
-    ],
-  },
-]);
+const notes = ref<INote[]>(STUB_NOTES);
 
 export const useNotes = () => {
   const addNote = (note: INote) => {
