@@ -17,6 +17,7 @@ const value = defineModel<boolean>({ default: false });
   position: relative;
   border: 3px solid var(--toggler-border);
   border-radius: 30px;
+  cursor: pointer;
 }
 
 .toggler__badge {

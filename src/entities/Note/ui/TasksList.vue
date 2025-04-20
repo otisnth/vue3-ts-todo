@@ -1,5 +1,5 @@
 <template>
-  <div class="taks-list__container">
+  <div class="taks-list">
     <Task
       v-for="(item, index) in filteredTasks"
       :key="index"
@@ -53,3 +53,11 @@ const onUpdateTask = (index: number, updatedTask: ITask) => {
   emit("update-tasks", filteredTasks.value);
 };
 </script>
+
+<style>
+.taks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+</style>
