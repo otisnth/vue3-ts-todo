@@ -4,7 +4,7 @@ import { useNotes } from "@entities/Note";
 export const useAddNote = () => {
   const { addNote } = useNotes();
 
-  const addNoteForm = (note: INote) => {
+  const processAddNote = (note: INote) => {
     note.createdAt = Date.now().toString();
 
     note.tasks = note.tasks.filter((task) => task.title.length);
@@ -20,6 +20,6 @@ export const useAddNote = () => {
   };
 
   return {
-    addNoteForm,
+    processAddNote,
   };
 };

@@ -24,11 +24,11 @@ const note = reactive<INote>({
   createdAt: "",
 });
 
-const { addNoteForm } = useAddNote();
+const { processAddNote } = useAddNote();
 
 const addHandler = () => {
   if (validateNote(note)) {
-    addNoteForm(toRaw(note));
+    processAddNote(toRaw(note));
     router.push({ name: "notesPage" });
   }
 };

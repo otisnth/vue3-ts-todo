@@ -4,7 +4,7 @@ import { useNotes } from "@entities/Note";
 export const useEditNote = () => {
   const { updateNote } = useNotes();
 
-  const editNoteForm = (note: INote) => {
+  const processEditNote = (note: INote) => {
     note.tasks = note.tasks.filter((task) => task.title.length);
 
     note.tasks.forEach((task) => {
@@ -17,6 +17,6 @@ export const useEditNote = () => {
   };
 
   return {
-    editNoteForm,
+    processEditNote,
   };
 };

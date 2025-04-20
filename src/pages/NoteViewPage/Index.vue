@@ -38,6 +38,9 @@ const editNoteHandler = () => {
 
 onMounted(() => {
   note.value = getNoteById(noteId);
+  if (!note.value) {
+    router.push({ name: "notesPage" });
+  }
 });
 
 const onTasksUpdate = (updatedTasks: ITask[]) => {

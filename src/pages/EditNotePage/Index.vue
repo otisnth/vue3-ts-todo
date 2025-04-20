@@ -19,7 +19,7 @@ import { useNotes, useValidationNote } from "@entities/Note";
 const router = useRouter();
 const route = useRoute();
 const { getNoteById } = useNotes();
-const { editNoteForm } = useEditNote();
+const { processEditNote } = useEditNote();
 const { validateNote } = useValidationNote();
 
 const note = reactive<INote>({
@@ -42,7 +42,7 @@ onMounted(() => {
 
 const saveHandler = () => {
   if (validateNote(note)) {
-    editNoteForm(toRaw(note));
+    processEditNote(toRaw(note));
     router.push({ name: "notesPage" });
   }
 };
