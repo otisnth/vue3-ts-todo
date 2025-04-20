@@ -40,13 +40,14 @@ const emit = defineEmits<{
 }>();
 
 const noteTasks = computed(() => note.tasks);
+const noteId = computed(() => Number(note.id));
 
 const handleNoteClick = () => {
-  router.push(`/note/${note.id}`);
+  router.push(`/note/${noteId.value}`);
 };
 
 const editNoteHandler = () => {
-  router.push({ name: "editNote", params: { id: note.id } });
+  router.push({ name: "editNote", params: { id: noteId.value } });
 };
 </script>
 
