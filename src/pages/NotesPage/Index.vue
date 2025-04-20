@@ -1,9 +1,11 @@
 <template>
   <PageContentHeader title="Список заметок" />
 
-  <div class="notes-list__container">
+  <div v-if="filteredNotes.length" class="notes-list__container">
     <Note v-for="item in filteredNotes" :key="item.id" :note="item" @delete-note="deleteNoteHandler" />
   </div>
+
+  <EmptyNotesPage v-else />
 </template>
 
 <script setup lang="ts">
@@ -11,6 +13,7 @@ import { computed } from "vue";
 import { useDeleteNote } from "@features/DeleteNote";
 import { Note, useNotes, sorting } from "@entities/Note";
 import { PageContentHeader } from "@shared/Common";
+import { EmptyNotesPage } from "./empty";
 
 const { deleteNoteHandler } = useDeleteNote();
 const { notes } = useNotes();
