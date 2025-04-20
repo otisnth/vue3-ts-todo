@@ -3,11 +3,11 @@
     <NoteForm v-model="note" />
 
     <div class="add-note-form__button-row">
-      <Button @click="cancelButtonHandler" class="add-note-form__button" :outlined="true">
+      <Button @click="emit('cancel')" class="add-note-form__button" :outlined="true">
         <SvgIcon name="CANCEL" width="30" height="30" />
         <span class="add-note-form__button-text">Отмена</span>
       </Button>
-      <Button @click="addButtonHandler" class="add-note-form__button">
+      <Button @click="emit('submit')" class="add-note-form__button">
         <SvgIcon name="EDIT_TODO" width="30" height="30" />
         <span class="add-note-form__button-text">Добавить</span>
       </Button>
@@ -16,36 +16,16 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, toRaw } from "vue";
-import { useRouter } from "vue-router";
-
-import { Button, SvgIcon } from "@shared/Common";
+import { NoteForm } from "@entities/Note";
 import type { INote } from "@entities/Note";
-import { NoteForm, useValidationNote } from "@entities/Note";
-import { useAddNote } from "../model";
+import { Button, SvgIcon } from "@shared/Common";
 
-const router = useRouter();
-const { validateNote } = useValidationNote();
+const note = defineModel<INote>({ required: true });
 
-const note = reactive<INote>({
-  id: 0,
-  title: "",
-  tasks: [],
-  createdAt: "",
-});
-
-const { addNoteForm } = useAddNote();
-
-const addButtonHandler = () => {
-  if (validateNote(note)) {
-    addNoteForm(toRaw(note));
-    router.push({ name: "notesPage" });
-  }
-};
-
-const cancelButtonHandler = () => {
-  router.back();
-};
+const emit = defineEmits<{
+  (e: "cancel"): void;
+  (e: "submit"): void;
+}>();
 </script>
 
 <style>

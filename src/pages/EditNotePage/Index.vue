@@ -2,13 +2,54 @@
   <PageContentHeader title="Редактировать заметку" is-back-button />
 
   <div class="edit-note-page">
-    <EditNoteForm />
+    <EditNoteForm v-model="note" @save="saveHandler" @cancel="cancelHandler" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { PageContentHeader } from "@shared/Common";
-import { EditNoteForm } from "@features/EditNote";
+import { EditNoteForm, useEditNote } from "@features/EditNote";
+
+import { reactive, onMounted, toRaw } from "vue";
+import { useRouter, useRoute } from "vue-router";
+
+import type { INote } from "@entities/Note";
+import { useNotes, useValidationNote } from "@entities/Note";
+
+const router = useRouter();
+const route = useRoute();
+const { getNoteById } = useNotes();
+const { editNoteForm } = useEditNote();
+const { validateNote } = useValidationNote();
+
+const note = reactive<INote>({
+  id: 0,
+  title: "",
+  tasks: [],
+  createdAt: "",
+});
+
+onMounted(() => {
+  const noteId = Number(route.params.id);
+  const currentNote = getNoteById(noteId);
+
+  if (currentNote) {
+    Object.assign(note, currentNote);
+  } else {
+    router.push({ name: "notesPage" });
+  }
+});
+
+const saveHandler = () => {
+  if (validateNote(note)) {
+    editNoteForm(toRaw(note));
+    router.push({ name: "notesPage" });
+  }
+};
+
+const cancelHandler = () => {
+  router.back();
+};
 </script>
 
 <style>
