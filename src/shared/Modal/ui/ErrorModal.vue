@@ -11,8 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import SvgIcon from "@shared/Common/ui/SvgIcon.vue";
-import Button from "@shared/Common/ui/Button.vue";
+import { SvgIcon, Button } from "@shared/Common";
 import { useModal } from "../model";
 
 interface IProps {

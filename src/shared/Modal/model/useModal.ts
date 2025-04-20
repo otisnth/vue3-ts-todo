@@ -1,5 +1,5 @@
-import { ref, shallowRef } from "vue";
 import type { Component } from "vue";
+import { ref, shallowRef } from "vue";
 import type { IModalData } from "./types";
 
 const isModalOpen = ref(false);

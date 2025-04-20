@@ -27,8 +27,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRouter } from "vue-router";
-import type { INote } from "../model";
 import { SvgIcon, formatDate } from "@shared/Common";
+import type { INote } from "../model";
 import TasksList from "./TasksList.vue";
 
 const router = useRouter();

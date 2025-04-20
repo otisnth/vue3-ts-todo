@@ -14,9 +14,9 @@
 
 <script setup lang="ts">
 import { computed, watch } from "vue";
+import { Input, Check } from "@shared/Common";
 import type { INote } from "../model";
 import { MIN_DISPLAYED_TASKS } from "../model";
-import { Input, Check } from "@shared/Common";
 
 interface IProps {
   isEditForm?: boolean;

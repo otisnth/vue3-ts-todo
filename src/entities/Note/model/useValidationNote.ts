@@ -1,5 +1,5 @@
-import type { INote } from "./types";
 import { useModal, ErrorModal } from "@shared/Modal";
+import type { INote } from "./types";
 
 interface IValidationRule {
   field: keyof INote;

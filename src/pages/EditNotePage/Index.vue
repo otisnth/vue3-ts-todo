@@ -7,14 +7,12 @@
 </template>
 
 <script setup lang="ts">
-import { PageContentHeader } from "@shared/Common";
-import { EditNoteForm, useEditNote } from "@features/EditNote";
-
 import { reactive, onMounted, toRaw } from "vue";
 import { useRouter, useRoute } from "vue-router";
-
+import { EditNoteForm, useEditNote } from "@features/EditNote";
 import type { INote } from "@entities/Note";
 import { useNotes, useValidationNote } from "@entities/Note";
+import { PageContentHeader } from "@shared/Common";
 
 const router = useRouter();
 const route = useRoute();

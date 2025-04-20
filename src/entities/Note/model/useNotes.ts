@@ -1,6 +1,6 @@
 import { ref } from "vue";
-import type { INote } from "./types";
 import { deepClone } from "@shared/Common";
+import type { INote } from "./types";
 import { STUB_NOTES } from "./config";
 
 const notes = ref<INote[]>(STUB_NOTES);

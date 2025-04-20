@@ -15,8 +15,8 @@
 </template>
 
 <script setup lang="ts">
-import Toggler from "./Toggler.vue";
 import { HEADER_LINKS, useTheme } from "../model";
+import Toggler from "./Toggler.vue";
 
 const { themeBoolean } = useTheme();
 </script>
