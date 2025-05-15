@@ -1,12 +1,17 @@
 <template>
   <div class="note-form">
-    <Input class="note-form__title" label="Заголовок заметки" v-model="note.title" />
+    <Input class="note-form__title" label="Заголовок заметки" data-testid="note-form__title" v-model="note.title" />
 
     <div class="note-form__tasks">
       <h3 class="note-form__tasks-title">Задачи</h3>
       <div class="note-form__task" v-for="(item, index) in note.tasks" :key="index">
-        <Check v-if="isEditForm" class="note-form__task-check" v-model="item.isDone" />
-        <Input class="note-form__task-input" v-model="item.title" />
+        <Check
+          v-if="isEditForm"
+          class="note-form__task-check"
+          :data-testid="`note-form__task-check-${index}`"
+          v-model="item.isDone"
+        />
+        <Input class="note-form__task-input" :data-testid="`note-form__task-input-${index}`" v-model="item.title" />
       </div>
     </div>
   </div>
