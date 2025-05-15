@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import Input from "./Input.vue";
+import { fn } from "@storybook/test";
+import Input from "../Input.vue";
 
 const meta: Meta<typeof Input> = {
   title: "Shared/Common/Input",
@@ -11,6 +12,7 @@ const meta: Meta<typeof Input> = {
   },
   args: {
     modelValue: "",
+    "onUpdate:modelValue": fn(),
   },
 };
 

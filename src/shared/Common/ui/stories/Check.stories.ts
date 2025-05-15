@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import Check from "./Check.vue";
+import { fn } from "@storybook/test";
+import Check from "../Check.vue";
 
 const meta: Meta<typeof Check> = {
   title: "Shared/Common/Check",
@@ -14,6 +15,7 @@ const meta: Meta<typeof Check> = {
     label: "Чекбокс",
     isDisabled: false,
     modelValue: false,
+    "onUpdate:modelValue": fn(),
   },
 };
 

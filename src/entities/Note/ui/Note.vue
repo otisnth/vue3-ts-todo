@@ -1,7 +1,7 @@
 <template>
   <div class="note__container">
     <div class="note__info-area">
-      <div class="note__info-header" @click="handleNoteClick">
+      <div class="note__info-header" @click="emit('view-note', note.id)">
         <SvgIcon class="note__icon" name="WAIT" width="24" height="24" />
         <span class="note__title">{{ note.title }}</span>
       </div>
@@ -14,7 +14,7 @@
 
     <div class="note__button-area">
       <div class="note__button note__button--edit">
-        <SvgIcon class="note__icon" name="EDIT" width="24" height="24" @click="editNoteHandler" />
+        <SvgIcon class="note__icon" name="EDIT" width="24" height="24" @click="emit('edit-note', note.id)" />
       </div>
 
       <div class="note__button note__button--delete">
@@ -26,29 +26,19 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { useRouter } from "vue-router";
 import { SvgIcon, formatDate } from "@shared/Common";
 import type { INote } from "../model";
 import TasksList from "./TasksList.vue";
-
-const router = useRouter();
 
 const { note } = defineProps<{ note: INote }>();
 
 const emit = defineEmits<{
   (e: "delete-note", noteId: number): void;
+  (e: "edit-note", noteId: number): void;
+  (e: "view-note", noteId: number): void;
 }>();
 
 const noteTasks = computed(() => note.tasks);
-const noteId = computed(() => Number(note.id));
-
-const handleNoteClick = () => {
-  router.push(`/note/${noteId.value}`);
-};
-
-const editNoteHandler = () => {
-  router.push({ name: "editNote", params: { id: noteId.value } });
-};
 </script>
 
 <style>

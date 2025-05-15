@@ -33,7 +33,7 @@ const value = defineModel<boolean>({ default: false });
 
 .toggler__badge--active {
   transform: translateX(calc(80px - 6px));
-  border: 2px solid var(--toggler-badge-border);
-  background-color: var(--toggler-badge);
+  border: 2px solid var(--toggler-active-badge-border);
+  background-color: var(--toggler-active-badge);
 }
 </style>

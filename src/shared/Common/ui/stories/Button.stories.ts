@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import Button from "./Button.vue";
-import { BUTTON_COLOR } from "../model";
+import Button from "../Button.vue";
+import { BUTTON_COLOR } from "../../model";
 
 const meta: Meta<typeof Button> = {
   title: "Shared/Common/Button",
