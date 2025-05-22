@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, getCurrentInstance } from "vue";
+import { useId } from "vue";
 
 interface IProps {
   isDisabled?: boolean;
@@ -16,8 +16,7 @@ interface IProps {
 const value = defineModel<boolean>({ required: true });
 
 const { isDisabled = false, label = "" } = defineProps<IProps>();
-const instance = getCurrentInstance();
-const checkboxId = computed(() => `checkbox-${instance?.uid}`);
+const checkboxId = useId();
 </script>
 
 <style>
